@@ -45,7 +45,7 @@ class MergeTwoLines(object):
                     line0.reverse()
                 elif type == 3:
                     line1.reverse()
-                line = line0 + line1[1:]
+                line = line0[:-1] + line1[1:]
 
                 if layer.wkbType()== QgsWkbTypes.LineString:
                     geom = QgsGeometry.fromPolylineXY(line)
