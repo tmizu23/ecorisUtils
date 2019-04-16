@@ -20,16 +20,12 @@ class SplitPolygon(QgsMapTool):
 
         #選択フィーチャからポリゴンレイヤー取得
 
-        polygon_layer_num, polygon_layer, polygons = self.selectedPolygonFeatures()
-        line_layer_num, line_layer, lines = self.selectedLineFeatures()
-        #self.log("{}".format(polygon_layer_num))
-        if polygon_layer_num != 1:
-            QMessageBox.warning(None, "Warning", u"2つ以上のレイヤに選択されたポリゴンがあります。")
-            return
-        if len(polygons) < 1:
+        polygon_layer, polygons = self.selectedPolygonFeatures()
+        line_layer, lines = self.selectedLineFeatures()
+        if polygon_layer is None:
             QMessageBox.warning(None, "Warning", u"ポリゴンレイヤが選択されていません。")
             return
-        if len(lines) < 1:
+        if line_layer is None:
             QMessageBox.warning(None, "Warning", u"ラインレイヤが選択されていません。")
             return
 
@@ -45,7 +41,7 @@ class SplitPolygon(QgsMapTool):
         line_layer.removeSelection()
 
     def splitSelectedPolygonByLine(self,line):
-        polygon_layer_num, polygon_layer, polygons = self.selectedPolygonFeatures()
+        polygon_layer, polygons = self.selectedPolygonFeatures()
         line_geom = QgsGeometry(line.geometry())
         polygon_layer.beginEditCommand("Features split")
         for i, polygon in enumerate(polygons):
@@ -127,7 +123,6 @@ class SplitPolygon(QgsMapTool):
     def selectedPolygonFeatures(self):
         layer_list = QgsProject.instance().layerTreeRoot().children()
         layers = [lyr.layer() for lyr in layer_list]
-        layer_num = 0
         layer = None
         features = []
         for l in layers:
@@ -135,14 +130,14 @@ class SplitPolygon(QgsMapTool):
                 if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.PolygonGeometry:
                     fids = l.selectedFeatureIds()
                     features = [self.getFeatureById(l,fid) for fid in fids]
-                    layer = l
-                    layer_num = layer_num + 1
-        return layer_num, layer, features
+                    if len(features) > 0:
+                        layer = l
+                        return layer, features
+        return layer, features
 
     def selectedLineFeatures(self):
         layer_list = QgsProject.instance().layerTreeRoot().children()
         layers = [lyr.layer() for lyr in layer_list]
-        layer_num = 0
         layer = None
         features = []
         for l in layers:
@@ -150,9 +145,10 @@ class SplitPolygon(QgsMapTool):
                 if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.LineGeometry:
                     fids = l.selectedFeatureIds()
                     features = [self.getFeatureById(l,fid) for fid in fids]
-                    layer = l
-                    layer_num = layer_num + 1
-        return layer_num, layer, features
+                    if len(features) > 0:
+                        layer = l
+                        return layer, features
+        return layer, features
 
     def getFeatureById(self,layer,featid):
         features = [f for f in layer.getFeatures(QgsFeatureRequest().setFilterFids([featid]))]
