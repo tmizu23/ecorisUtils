@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/plugins/ecorisUtils" >
+        <file>icon/iconMergeTwoLines.svg</file>
+        <file>icon/iconMoveWithSnapping.svg</file>
+        <file>icon/iconFeatureSelection.svg</file>
+        <file>icon/iconSplitPolygon.svg</file>
+        <file>icon/iconCreatePoint.svg</file>
+        <file>icon/iconRectangleArea.svg</file>
+        <file>icon/iconSplitLine.svg</file>
+        <file>icon/iconScalingFeature.svg</file>
+        <file>icon/mCrossHair.svg</file>
+    </qresource>
+</RCC>

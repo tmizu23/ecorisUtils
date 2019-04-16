@@ -1,0 +1,17 @@
+[general]
+name = ecoris Utils
+qgisMinimumVersion=3.0
+description = ecoris's utils
+about =
+version = 0.1.0
+author =
+email =
+tags =
+homepage =
+tracker =
+repository =
+icon = icon.png
+experimental = False
+deprecated = False
+category =
+changelog = 
