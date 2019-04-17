@@ -15,6 +15,13 @@ class SplitLine(QgsMapTool):
         QgsMapTool.__init__(self, canvas)
         self.canvas = canvas
         self.iface = iface
+        self.snapmarker = QgsVertexMarker(self.canvas)
+        self.snapmarker.setIconType(QgsVertexMarker.ICON_BOX)
+        self.snapmarker.setColor(QColor(0, 0, 255))
+        self.snapmarker.setPenWidth(2)
+        self.snapmarker.setIconSize(10)
+        self.snapmarker.hide()
+        self.snapping = True
 
 
     def canvasPressEvent(self, event):
@@ -22,7 +29,8 @@ class SplitLine(QgsMapTool):
         if not layer or layer.type() != QgsMapLayer.VectorLayer or layer.geometryType() != QgsWkbTypes.LineGeometry:
             return
         button_type = event.button()
-        pnt = self.toMapCoordinates(event.pos())
+        pnt = self.getSnapPoint(event,layer)
+        #pnt = self.toMapCoordinates(event.pos())
 
         # 右クリック
         if button_type == 2:
@@ -51,7 +59,7 @@ class SplitLine(QgsMapTool):
                 geom = QgsGeometry(f.geometry())
                 self.check_crs()
                 if self.layerCRS.srsid() != self.projectCRS.srsid():
-                    geom.transform(QgsCoordinateTransform(self.layerCRS, self.projectCRS,self.layerCRS, QgsProject.instance()))
+                    geom.transform(QgsCoordinateTransform(self.layerCRS, self.projectCRS, QgsProject.instance()))
                 if geom.wkbType() == QgsWkbTypes.MultiLineString:
                     polyline = geom.asMultiPolyline()[0]
                 elif geom.wkbType() == QgsWkbTypes.LineString:
@@ -66,6 +74,12 @@ class SplitLine(QgsMapTool):
                 self.createFeature(QgsGeometry.fromPolylineXY(line2), f)
                 self.editFeature(QgsGeometry.fromPolylineXY(line1), f, False)
                 self.canvas.currentLayer().removeSelection()
+                layer.select(f.id())
+
+
+    def canvasMoveEvent(self, event):
+        layer = self.canvas.currentLayer()
+        self.getSnapPoint(event, layer)
 
     def createFeature(self,geom,feat=None):
         continueFlag = False
@@ -125,6 +139,20 @@ class SplitLine(QgsMapTool):
                     continueFlag = True
         return continueFlag
 
+    def getSnapPoint(self,event,layer):
+        self.snapmarker.hide()
+        point = event.pos()
+        # snapしていない場合
+        snppnt = self.toMapCoordinates(point)
+        if self.snapping:
+            snapper = self.canvas.snappingUtils()
+            snapMatch = snapper.snapToMap(point)
+            if snapMatch.hasVertex():
+                snppnt = snapMatch.point()
+                self.snapmarker.setCenter(snppnt)
+                self.snapmarker.show()
+        return snppnt
+
     def closestPointOfGeometry(self,point,geom):
         #フィーチャとの距離が近いかどうかを確認
         near = False
@@ -175,6 +203,14 @@ class SplitLine(QgsMapTool):
             return True,f
         else:
             return False,None
+
+    def check_snapsetting(self):
+        snap_cfg = self.iface.mapCanvas().snappingUtils().config()
+        if snap_cfg.enabled():
+            self.snapping = True
+        else:
+            self.snapping = False
+        #QgsMessageLog.logMessage("snapping:{}".format(self.snapping), 'MyPlugin')
 
     def check_crs(self):
         layer = self.canvas.currentLayer()
