@@ -72,6 +72,8 @@ class FeatureSelection(QgsMapTool):
             near = self.selectNearFeature(layer.layer(), point, rect)
             if near and rect is None:
                 break
+            elif not near:
+                layer.layer().removeSelection()
 
     def showRect(self, startPoint, endPoint):
         self.rubberBand.reset(QgsWkbTypes.PolygonGeometry)
