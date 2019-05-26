@@ -51,15 +51,15 @@ class ecorisUtils(object):
         
 
         # Create action
-        self.actionFeatureSelection = QAction(QIcon(":/plugins/ecorisUtils/icon/iconFeatureSelection.svg"),"FeaturSelection", self.iface.mainWindow())
+        self.actionFeatureSelection = QAction(QIcon(":/plugins/ecorisUtils/icon/iconFeatureSelection.svg"),u"フィーチャ選択", self.iface.mainWindow())
         self.actionFeatureSelection.setObjectName("FeatureSelection")
-        self.actionFeatureSelection.setEnabled(False)
+        self.actionFeatureSelection.setEnabled(True)
         self.actionFeatureSelection.setCheckable(True)
         self.actionFeatureSelection.triggered.connect(self.feature_selection)
         self.toolbar.addAction(self.actionFeatureSelection)
 
         # Create ction
-        self.actionSplitPolygon = QAction(QIcon(":/plugins/ecorisUtils/icon/iconSplitPolygon.svg"),"SplitPolygon", self.iface.mainWindow())
+        self.actionSplitPolygon = QAction(QIcon(":/plugins/ecorisUtils/icon/iconSplitPolygon.svg"),u"ポリゴン分割", self.iface.mainWindow())
         self.actionSplitPolygon.setObjectName("SplitPolygon")
         self.actionSplitPolygon.setEnabled(False)
         self.actionSplitPolygon.setCheckable(True)
@@ -67,7 +67,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionSplitPolygon)
 
         # Create action
-        self.actionSplitLine = QAction(QIcon(":/plugins/ecorisUtils/icon/iconSplitLine.svg"),"SplitLine", self.iface.mainWindow())
+        self.actionSplitLine = QAction(QIcon(":/plugins/ecorisUtils/icon/iconSplitLine.svg"),u"ライン分割", self.iface.mainWindow())
         self.actionSplitLine.setObjectName("SplitLine")
         self.actionSplitLine.setEnabled(False)
         self.actionSplitLine.setCheckable(True)
@@ -75,7 +75,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionSplitLine)
 
         # Create action
-        self.actionMergeTwoLines = QAction(QIcon(":/plugins/ecorisUtils/icon/iconMergeTwoLines.svg"),"MergeTwoLines", self.iface.mainWindow())
+        self.actionMergeTwoLines = QAction(QIcon(":/plugins/ecorisUtils/icon/iconMergeTwoLines.svg"),u"ライン結合", self.iface.mainWindow())
         self.actionMergeTwoLines.setObjectName("MergeTwoLines")
         self.actionMergeTwoLines.setEnabled(False)
         self.actionMergeTwoLines.setCheckable(False)
@@ -83,7 +83,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionMergeTwoLines)
 
         # Create action
-        self.actionMoveWithSnapping = QAction(QIcon(":/plugins/ecorisUtils/icon/iconMoveWithSnapping.svg"),"MoveWithSnapping", self.iface.mainWindow())
+        self.actionMoveWithSnapping = QAction(QIcon(":/plugins/ecorisUtils/icon/iconMoveWithSnapping.svg"),u"スナップして移動", self.iface.mainWindow())
         self.actionMoveWithSnapping.setObjectName("MoveWithSnapping")
         self.actionMoveWithSnapping.setEnabled(False)
         self.actionMoveWithSnapping.setCheckable(True)
@@ -91,7 +91,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionMoveWithSnapping)
 
         # Create action
-        self.actionCreatePoint = QAction(QIcon(":/plugins/ecorisUtils/icon/iconCreatePoint.svg"),"CreatePoint", self.iface.mainWindow())
+        self.actionCreatePoint = QAction(QIcon(":/plugins/ecorisUtils/icon/iconCreatePoint.svg"),u"座標からポイント作成", self.iface.mainWindow())
         self.actionCreatePoint.setObjectName("CreatePoint")
         self.actionCreatePoint.setEnabled(True)
         self.actionCreatePoint.setCheckable(False)
@@ -99,7 +99,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionCreatePoint)
 
         # Create action
-        self.actionRectangleArea = QAction(QIcon(":/plugins/ecorisUtils/icon/iconRectangleArea.svg"),"RectangleArea", self.iface.mainWindow())
+        self.actionRectangleArea = QAction(QIcon(":/plugins/ecorisUtils/icon/iconRectangleArea.svg"),u"範囲枠作成", self.iface.mainWindow())
         self.actionRectangleArea.setObjectName("RectangleArea")
         self.actionRectangleArea.setEnabled(True)
         self.actionRectangleArea.setCheckable(False)
@@ -107,7 +107,7 @@ class ecorisUtils(object):
         self.toolbar.addAction(self.actionRectangleArea)
 
         # Create action
-        self.actionScalingFeature = QAction(QIcon(":/plugins/ecorisUtils/icon/iconScalingFeature.svg"),"ScalingFeature", self.iface.mainWindow())
+        self.actionScalingFeature = QAction(QIcon(":/plugins/ecorisUtils/icon/iconScalingFeature.svg"),u"フィーチャ拡大縮小", self.iface.mainWindow())
         self.actionScalingFeature.setObjectName("ScalingFeature")
         self.actionScalingFeature.setEnabled(True)
         self.actionScalingFeature.setCheckable(False)
@@ -160,7 +160,6 @@ class ecorisUtils(object):
 
             self.actionMergeTwoLines.setEnabled(True)
             self.actionMoveWithSnapping.setEnabled(True)
-            self.actionFeatureSelection.setEnabled(True)
             self.actionSplitPolygon.setEnabled(True)
             self.actionSplitLine.setEnabled(True)
 
@@ -176,7 +175,6 @@ class ecorisUtils(object):
         else:
             self.actionMergeTwoLines.setEnabled(False)
             self.actionMoveWithSnapping.setEnabled(False)
-            self.actionFeatureSelection.setEnabled(False)
             self.actionSplitPolygon.setEnabled(False)
             self.actionSplitLine.setEnabled(False)
 

@@ -63,6 +63,7 @@ class FeatureSelection(QgsMapTool):
             self.selectFeatures(point)
 
     def selectFeatures(self,point,rect=None):
+        selected = False
         #layers = QgsMapLayerRegistry.instance().mapLayers().values()
         layers = QgsProject.instance().layerTreeRoot().findLayers()
         for layer in layers:
@@ -70,9 +71,10 @@ class FeatureSelection(QgsMapTool):
             if layer.layer().type() != QgsMapLayer.VectorLayer:
                 continue
             near = self.selectNearFeature(layer.layer(), point, rect)
-            if near and rect is None:
-                break
-            elif not near:
+            if near:
+                selected = True
+        if not selected:
+            for layer in layers:
                 layer.layer().removeSelection()
 
     def showRect(self, startPoint, endPoint):

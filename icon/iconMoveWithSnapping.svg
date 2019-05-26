@@ -1,23 +1,32 @@
-<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<linearGradient gradientUnits="userSpaceOnUse" x1="50.5" x2="50.5" y1="16.9999985" y2="22.9999985">
-<stop offset="0" stop-color="#555753"/>
-<stop offset="1" stop-color="#555753" stop-opacity="0"/>
-</linearGradient>
-<g transform="translate(0 -8)">
-<path d="m4.7463408 10.484713l5.3181822 10.227272 4.90909-8.181818h4.909091" fill="none" stroke="#a6cca6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.63636363"/>
-<path d="m3.9281588 9.6665316h2.4545455v2.4545455h-2.4545455z" fill="#d2d2d2" stroke="#a0a0a0" stroke-width=".81818181"/>
-<path d="m8.8372498 19.484715h2.4545455v2.4545455h-2.4545455z" fill="#d2d2d2" stroke="#a0a0a0" stroke-width=".81818175"/>
-<path d="m13.746341 11.302895h2.4545455v2.4545455h-2.4545455z" fill="#d2d2d2" stroke="#a0a0a0" stroke-width=".81818175"/>
-<path d="m18.655432 11.302895h2.4545455v2.4545455h-2.4545455z" fill="#d2d2d2" stroke="#a0a0a0" stroke-width=".81818175"/>
-<g transform="translate(-27.5 6.0000005)">
-<rect fill="#3c5a6e" height="11" rx="2.0114901" width="11" x="40.5" y="14.999999"/>
-<path d="m41.500001 20.999999l8.999999-.009599c0 0 0 0 0-2 0-2.990401-1-2.990401-4.5-2.990401-3.5 0-4.5 0-4.5 3 0 2 0 2 .000001 2z" fill="#fcffff" fill-rule="evenodd" opacity=".3"/>
-<path d="m45.5 15.999999v3.000001h-4v3h4v2.999999l5-4z" fill="#fff" fill-rule="evenodd"/>
-</g>
-<path d="m2.8970973 16.125956l5.318181 10.227273 4.9090917-8.181818h4.909091" fill="none" stroke="#73af73" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.63636363"/>
-<path d="m2.0789149 15.307774h2.4545455v2.4545455h-2.4545455z" fill="#aaa" stroke="#787878" stroke-width=".81818181"/>
-<path d="m6.9880066 25.125957h2.4545455v2.4545455h-2.4545455z" fill="#aaa" stroke="#787878" stroke-width=".81818175"/>
-<path d="m11.897098 16.944139h2.4545455v2.4545455h-2.4545455z" fill="#aaa" stroke="#787878" stroke-width=".81818175"/>
-<path d="m16.806189 16.944139h2.4545455v2.4545455h-2.4545455z" fill="#aaa" stroke="#787878" stroke-width=".81818175"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="24" height="24"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<polygon clip-path="url(#SVGID_2_)" fill="#3FA9F5" stroke="#666666" stroke-linejoin="round" points="9.458,33.125 -2.474,32.972 
+		-8.307,22.562 -2.208,12.306 9.724,12.458 15.557,22.868 	"/>
+	<polygon opacity="0.5" clip-path="url(#SVGID_2_)" fill="#3FA9F5" stroke="#666666" stroke-linejoin="round" points="
+		11.636,30.375 -0.295,30.222 -6.128,19.813 -0.03,9.556 11.903,9.709 17.736,20.118 	"/>
+	<polygon clip-path="url(#SVGID_2_)" fill="#7AC943" stroke="#666666" stroke-linejoin="round" points="24.126,6.151 15.868,4.631 
+		13.054,-3.28 18.499,-9.672 26.759,-8.152 29.57,-0.242 	"/>
+	
+		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FF0000" stroke-linejoin="round" x1="12" y1="9.875" x2="15.875" y2="4.563"/>
+	<circle clip-path="url(#SVGID_2_)" fill="#FF7BAC" stroke="#FF0000" stroke-linejoin="round" cx="12" cy="9.875" r="1.412"/>
+	<circle clip-path="url(#SVGID_2_)" fill="#FF7BAC" stroke="#FF0000" stroke-linejoin="round" cx="15.875" cy="4.563" r="1.413"/>
+	<g clip-path="url(#SVGID_2_)">
+		<path fill="#FBB03B" stroke="#F15A24" stroke-miterlimit="10" d="M23.473,22.028c0,0.744-0.604,1.347-1.348,1.347h-7.644
+			c-0.744,0-1.347-0.603-1.347-1.347V15.04c0-0.744,0.603-1.347,1.347-1.347h7.644c0.744,0,1.348,0.603,1.348,1.347V22.028z"/>
+		<path fill="#F15A24" d="M23.473,22.702c0,0.371-0.604,0.673-1.348,0.673h-7.644c-0.744,0-1.347-0.302-1.347-0.673v-3.494
+			c0-0.373,0.603-0.674,1.347-0.674h7.644c0.744,0,1.348,0.301,1.348,0.674V22.702z"/>
+		<polygon fill="#FFFFFF" points="22.98,18.445 18.488,14.019 18.488,16.927 13.549,16.927 13.549,19.964 18.488,19.964 
+			18.488,22.873 		"/>
+	</g>
 </g>
 </svg>

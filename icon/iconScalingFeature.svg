@@ -1,1 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M13.5 12.5h8v9h-8z" fill="#c8e6fa" stroke="#82a2b5" stroke-linecap="round"/><path d="M2.5 2.5h8v19h-8z" fill="#f0f0a0" stroke="#979796" stroke-linecap="round"/><g fill="none" stroke="#424242"><path d="M17.5 15v-4.5M20.75 13.5l-3.25-2.82-3.25 2.82"/></g><g fill="none" stroke="#424242"><path d="M17.5 19.017v4.5M14.25 20.517l3.25 2.82 3.25-2.82"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<polygon opacity="0.6" fill="#FCEE21" stroke="#000000" stroke-width="0.5" points="7.461,21.909 5.272,21.32 3.545,22.789 
+	3.431,20.525 1.5,19.338 3.618,18.528 4.151,16.325 5.576,18.088 7.836,17.914 6.598,19.813 "/>
+<g>
+	<g>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="12.124" y1="1.08" x2="12.008" y2="1.301"/>
+		
+			<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="0.522,1.044" x1="11.524" y1="2.226" x2="4.509" y2="15.641"/>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="4.267" y1="16.104" x2="4.151" y2="16.325"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="5.196" y1="8.952" x2="5.112" y2="9.187"/>
+		
+			<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="0.5262,1.0524" x1="4.759" y1="10.179" x2="1.76" y2="18.606"/>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="1.584" y1="19.103" x2="1.5" y2="19.338"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="10.542" y1="17.975" x2="10.336" y2="18.116"/>
+		
+			<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="0.4702,0.9404" x1="9.562" y1="18.649" x2="4.139" y2="22.381"/>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="3.751" y1="22.647" x2="3.545" y2="22.789"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="21.751" y1="5.235" x2="21.566" y2="5.404"/>
+		
+			<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="0.4822,0.9645" x1="20.854" y1="6.053" x2="8.377" y2="17.421"/>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="8.021" y1="17.746" x2="7.836" y2="17.914"/>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="20.774" y1="15.677" x2="20.548" y2="15.783"/>
+		
+			<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="0.4896,0.9793" x1="19.661" y1="16.198" x2="8.131" y2="21.596"/>
+		<line fill="none" stroke="#F15A24" stroke-width="0.5" stroke-linecap="round" x1="7.688" y1="21.803" x2="7.461" y2="21.909"/>
+	</g>
+</g>
+<polygon fill="#FCEE21" stroke="#000000" stroke-width="0.75" points="20.774,15.677 15.055,14.136 10.542,17.975 10.241,12.058 
+	5.196,8.952 10.729,6.836 12.124,1.08 15.846,5.688 21.751,5.235 18.52,10.198 "/>
+</svg>

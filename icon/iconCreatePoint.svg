@@ -1,8 +1,18 @@
-<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(0 -8)">
-<rect fill="#8cbe8c" height="7" rx="4" stroke="#4b4c4b" stroke-linecap="round" stroke-opacity=".95686275" stroke-width=".99999994" width="7" x="2.5" y="23.5"/>
-<path d="m5.5 9.5h13c2.216 0 4 1.784 4 4v4c0 2.216-1.784 4-4 4h-6c0 2-2.5 5-6 5 2.5-1.443376 2.0594341-2.769793 2-5h-3c-2.216 0-4-1.784-4-4v-4c0-2.216 1.784-4 4-4z" fill="#f9ee94" fill-rule="evenodd" overflow="visible"/>
-<path d="m2.5 20v-7c0-1 1.5-2.5 2.5-2.5h16" fill="none" stroke="#fcf7ea"/>
-<path d="m5.5 9.5h13c2.216 0 4 1.784 4 4v4c0 2.216-1.784 4-4 4h-6c0 2-2.5 5-6 5 2.5-1.443376 2.0594341-2.769793 2-5h-3c-2.216 0-4-1.784-4-4v-4c0-2.216 1.784-4 4-4z" fill="none" overflow="visible" stroke="#cba909" stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="6.178" y1="0" x2="6.178" y2="24"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="0" y1="16.412" x2="24" y2="16.412"/>
+<text transform="matrix(1 0 0 1 8.9277 8.4697)" font-family="'KozGoPr6N-Medium-90ms-RKSJ-H'" font-size="10">X,Y</text>
+<g>
+	<g>
+		<g>
+			<rect x="4.052" y="14.287" fill="none" width="4.251" height="4.252"/>
+			<path fill="#FF1B1B" d="M6.176,14.287c1.175,0,2.127,0.951,2.127,2.127c0,1.174-0.952,2.125-2.127,2.125
+				c-1.172,0-2.124-0.951-2.124-2.125C4.052,15.238,5.004,14.287,6.176,14.287"/>
+		</g>
+	</g>
 </g>
 </svg>

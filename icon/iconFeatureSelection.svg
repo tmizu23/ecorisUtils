@@ -1,7 +1,17 @@
-<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(0 -1028.3622)">
-<path d="m1.4798758 1029.842h21.040247v19.040249h-21.040247z" fill="#e5e5e5" stroke="#424242" stroke-dasharray="1.91950336 .95975168" stroke-width=".95975173"/>
-<path d="m2.5384617 1030.9006h12.923078v12.923077h-12.923078z" fill="#fce94f" overflow="visible" stroke="#c4a000" stroke-linecap="round" stroke-width="1.07692313"/>
-<path d="m22.652743 1044.0577l-12.756464-6.9791 5.477553 13.6014 2.180887-3.5312 4.312159 4.7134 1.633122-1.5913-4.408599-4.6683 3.561343-1.5449z" style="fill:#fff;fill-rule:evenodd;stroke:#000;stroke-width:.7;stroke-linecap:round;stroke-linejoin:round"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g>
+	<polygon opacity="0.4" fill="#FCE94F" stroke="#C5950F" stroke-miterlimit="10" points="13.691,18.752 1.402,18.764 7.43,11.984 
+		19.719,11.973 	"/>
+	<polygon opacity="0.6" fill="#FCE94F" stroke="#C5950F" stroke-miterlimit="10" points="13.691,15.357 1.402,15.369 7.43,8.589 
+		19.719,8.578 	"/>
+	<polygon opacity="0.8" fill="#FCE94F" stroke="#C5950F" stroke-miterlimit="10" points="13.691,11.961 1.402,11.974 7.43,5.193 
+		19.719,5.182 	"/>
+	<polygon fill="#FCE94F" stroke="#C5950F" stroke-miterlimit="10" points="13.691,8.566 1.402,8.578 7.43,1.798 19.719,1.787 	"/>
 </g>
+<polygon fill="#FFFFFF" stroke="#666666" stroke-miterlimit="10" points="23.102,21.328 19.861,17.523 22.771,15.547 11.694,10.02 
+	15.466,21.811 17.888,19.216 21.129,23.02 "/>
 </svg>

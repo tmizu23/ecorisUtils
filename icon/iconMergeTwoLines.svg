@@ -1,6 +1,16 @@
-<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-<g fill="none" stroke="#c4a000" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -1028.3622)">
-<rect height="4.098249" overflow="visible" rx="2.6428566" ry="2.0491245" width="10.839286" x="2.4375007" y="1038.1122"/>
-<rect height="4.098249" overflow="visible" rx="2.6428566" ry="2.0491245" width="10.839286" x="10.964286" y="1038.1345"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g>
+	<g>
+		<circle fill="#F7931E" stroke="#F15A24" cx="13" cy="11.333" r="3.432"/>
+		<circle fill="none" stroke="#F15A24" stroke-miterlimit="10" cx="13" cy="11.333" r="6.177"/>
+	</g>
+	<path fill="none" stroke="#603813" stroke-width="1.5" d="M12,11.667c-2.333,1.384-4.199,2.721-4.75,4.708
+		c-1.222,4.407,2.789,9.47,8.75,4.958c3.058-2.314,5.199-4.051,8-3.598"/>
+	<path fill="none" stroke="#603813" stroke-width="1.5" d="M1.417,7.902C0.667,4.5,4.943,2.582,5.833,2.167
+		c4.105-1.916,14.262-1.596,13.292,3.458c-0.472,2.454-2.263,3.21-5.296,5.01"/>
 </g>
 </svg>
