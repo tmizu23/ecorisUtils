@@ -39,7 +39,7 @@ class ChangeAttribute(QgsMapTool):
         self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
 
         ## koudou
-        name = "koudou"
+        name = "行動"
         column = None
         value = [u"飛翔", u"旋回上昇", u"ディスプレイ", u"攻撃", u"被攻撃", u"餌運び", u"探餌", u"狩り", u"巣材運び"]
         menu = [u"飛翔 (A)", u"旋回上昇 (B)", u"ディスプレイ(C)", u"攻撃 (D)", u"被攻撃 (E)", u"餌運び (F)", u"探餌 (G)",

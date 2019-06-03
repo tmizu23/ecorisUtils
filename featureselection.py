@@ -75,7 +75,8 @@ class FeatureSelection(QgsMapTool):
                 selected = True
         if not selected:
             for layer in layers:
-                layer.layer().removeSelection()
+                if layer.layer().type() == QgsMapLayer.VectorLayer:
+                    layer.layer().removeSelection()
 
     def showRect(self, startPoint, endPoint):
         self.rubberBand.reset(QgsWkbTypes.PolygonGeometry)
@@ -146,6 +147,7 @@ class FeatureSelection(QgsMapTool):
         renderer = self.canvas.mapSettings()
         self.layerCRS = layer.crs()
         self.projectCRS = renderer.destinationCrs()
+
     def showSettingsWarning(self):
         pass
     def activate(self):
