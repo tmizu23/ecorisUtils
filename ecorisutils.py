@@ -15,6 +15,7 @@ from .movewithsnapping import MoveWithSnapping
 from .featureselection import FeatureSelection
 from .splitpolygon import SplitPolygon
 from .splitline import SplitLine
+from .changeattribute import ChangeAttribute
 
 from .createpoint import CreatePoint
 from .rectanglearea import RectangleArea
@@ -41,6 +42,7 @@ class ecorisUtils(object):
         # Get the tool
         self.mergetwolines = MergeTwoLines(self.iface)
         self.movewithsnapping = MoveWithSnapping(self.canvas, self.iface)
+        self.changeattribute = ChangeAttribute(self.canvas, self.iface)
         self.featureselection = FeatureSelection(self.canvas, self.iface)
         self.splitpolygon = SplitPolygon(self.canvas, self.iface)
         self.splitline = SplitLine(self.canvas, self.iface)
@@ -58,7 +60,15 @@ class ecorisUtils(object):
         self.actionFeatureSelection.triggered.connect(self.feature_selection)
         self.toolbar.addAction(self.actionFeatureSelection)
 
-        # Create ction
+        # Create action
+        self.actionChangeAttribute = QAction(QIcon(":/plugins/ecorisUtils/icon/iconChangeAttribute.svg"),u"属性変更", self.iface.mainWindow())
+        self.actionChangeAttribute.setObjectName("ChangeAttribute")
+        self.actionChangeAttribute.setEnabled(False)
+        self.actionChangeAttribute.setCheckable(True)
+        self.actionChangeAttribute.triggered.connect(self.change_attribute)
+        self.toolbar.addAction(self.actionChangeAttribute)
+
+        # Create action
         self.actionSplitPolygon = QAction(QIcon(":/plugins/ecorisUtils/icon/iconSplitPolygon.svg"),u"ポリゴン分割", self.iface.mainWindow())
         self.actionSplitPolygon.setObjectName("SplitPolygon")
         self.actionSplitPolygon.setEnabled(False)
@@ -130,6 +140,10 @@ class ecorisUtils(object):
         self.canvas.setMapTool(self.featureselection)
         self.actionFeatureSelection.setChecked(True)
 
+    def change_attribute(self):
+        self.canvas.setMapTool(self.changeattribute)
+        self.actionChangeAttribute.setChecked(True)
+
     def split_polygon(self):
         self.canvas.setMapTool(self.splitpolygon)
         self.actionSplitPolygon.setChecked(True)
@@ -161,6 +175,7 @@ class ecorisUtils(object):
             self.actionMergeTwoLines.setEnabled(True)
             self.actionMoveWithSnapping.setEnabled(True)
             self.actionSplitPolygon.setEnabled(True)
+            self.actionChangeAttribute.setEnabled(True)
             self.actionSplitLine.setEnabled(True)
 
             try:  # remove any existing connection first
@@ -176,6 +191,7 @@ class ecorisUtils(object):
             self.actionMergeTwoLines.setEnabled(False)
             self.actionMoveWithSnapping.setEnabled(False)
             self.actionSplitPolygon.setEnabled(False)
+            self.actionChangeAttribute.setEnabled(False)
             self.actionSplitLine.setEnabled(False)
 
             if (layer.type() == QgsMapLayer.VectorLayer and
@@ -198,6 +214,7 @@ class ecorisUtils(object):
         self.actionMoveWithSnapping.setChecked(False)
         self.actionFeatureSelection.setChecked(False)
         self.actionSplitPolygon.setChecked(False)
+        self.actionChangeAttribute.setChecked(False)
         self.actionSplitLine.setChecked(False)
 
     def unload(self):
@@ -205,6 +222,7 @@ class ecorisUtils(object):
         self.toolbar.removeAction(self.actionMoveWithSnapping)
         self.toolbar.removeAction(self.actionFeatureSelection)
         self.toolbar.removeAction(self.actionSplitPolygon)
+        self.toolbar.removeAction(self.actionChangeAttribute)
         self.toolbar.removeAction(self.actionSplitLine)
         del self.toolbar
 
