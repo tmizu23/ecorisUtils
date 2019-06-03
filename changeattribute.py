@@ -6,6 +6,15 @@ from qgis.PyQt.QtGui import *
 from qgis.core import *
 from qgis.gui import *
 
+class ChangeAttributeSettings():
+    def __init__(self, name, column, value, menu, shortcut, cursor):
+        self.name = name
+        self.column = column
+        self.value = value
+        self.menu = menu
+        self.shortcut = shortcut
+        self.cursor = cursor
+
 class ChangeAttribute(QgsMapTool):
 
     def __init__(self, canvas, iface):
@@ -16,23 +25,27 @@ class ChangeAttribute(QgsMapTool):
         self.column = None  # current attribute column
         self.canvas.setCursor(Qt.ArrowCursor)  # default cursor
 
+        self.attribute_settings = []
         # attribute list and icon
         ## LMH
-        self.LMH_column = None
-        self.LMH_value = ["L", "M", "H"]
-        self.LMH_menu_str = ["L", "M", "H"]
-        self.LMH_shortcut_list = [Qt.Key_L, Qt.Key_M, Qt.Key_H]
-        self.LMH_cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/L.svg')),
+        name = "LMH"
+        column = None
+        value = ["L", "M", "H"]
+        menu = ["L", "M", "H"]
+        shortcut = [Qt.Key_L, Qt.Key_M, Qt.Key_H]
+        cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/L.svg')),
                            QCursor(QPixmap(':/plugins/ecorisUtils/icon/M.svg')),
                            QCursor(QPixmap(':/plugins/ecorisUtils/icon/H.svg'))]
+        self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
 
         ## koudou
-        self.koudou_column = None
-        self.koudou_value = [u"飛翔", u"旋回上昇", u"ディスプレイ", u"攻撃", u"被攻撃", u"餌運び", u"探餌", u"狩り", u"巣材運び"]
-        self.koudou_menu_str = [u"飛翔 (A)", u"旋回上昇 (B)", u"ディスプレイ(C)", u"攻撃 (D)", u"被攻撃 (E)", u"餌運び (F)", u"探餌 (G)",
+        name = "koudou"
+        column = None
+        value = [u"飛翔", u"旋回上昇", u"ディスプレイ", u"攻撃", u"被攻撃", u"餌運び", u"探餌", u"狩り", u"巣材運び"]
+        menu = [u"飛翔 (A)", u"旋回上昇 (B)", u"ディスプレイ(C)", u"攻撃 (D)", u"被攻撃 (E)", u"餌運び (F)", u"探餌 (G)",
                                 u"狩り (H)", u"巣材運び (I)"]
-        self.koudou_shortcut_list = [Qt.Key_A, Qt.Key_B, Qt.Key_C, Qt.Key_D, Qt.Key_E, Qt.Key_F, Qt.Key_G, Qt.Key_H, Qt.Key_I]
-        self.koudou_cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/飛翔.svg')),
+        shortcut = [Qt.Key_A, Qt.Key_B, Qt.Key_C, Qt.Key_D, Qt.Key_E, Qt.Key_F, Qt.Key_G, Qt.Key_H, Qt.Key_I]
+        cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/飛翔.svg')),
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/旋回上昇.svg')),
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/ディスプレイ.svg')),
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/攻撃.svg')),
@@ -41,6 +54,7 @@ class ChangeAttribute(QgsMapTool):
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/探餌.svg')),
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/狩り.svg')),
                               QCursor(QPixmap(':/plugins/ecorisUtils/icon/巣材運び.svg'))]
+        self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
 
         # load setting and initialize menu
         self.load_settings()
@@ -48,45 +62,31 @@ class ChangeAttribute(QgsMapTool):
 
     def load_settings(self):
         settings = QSettings()
-        self.LMH_column = settings.value("ecorisUtils/LMH_column")
-        self.koudou_column = settings.value("ecorisUtils/koudou_column")
+        for i, s in enumerate(self.attribute_settings):
+            self.attribute_settings[i].column = settings.value("ecorisUtils/" + s.name)
 
     def generate_menu(self):
         self.menu = QMenu()
 
-        if self.LMH_column is not None:
-            submenu = self.menu.addMenu(self.LMH_column)
-            for i, act in enumerate(self.LMH_menu_str):
-                submenu.addAction(act).triggered.connect(lambda checked, process_type="LMH",idx=i: self.set_attribute(process_type, idx))
-            submenu.addSeparator()
-            LMH_Action = submenu.addAction(u"列再設定")
-            LMH_Action.triggered.connect(lambda: self.set_column("LMH"))
-            self.menu.addSeparator()
-        else:
-            LMH_Action = self.menu.addAction(u"LMHの列設定")
-            LMH_Action.triggered.connect(lambda: self.set_column("LMH"))
-            self.menu.addSeparator()
+        for s in self.attribute_settings:
+            if s.column is not None:
+                submenu = self.menu.addMenu(s.column)
+                for i, act in enumerate(s.menu):
+                    submenu.addAction(act).triggered.connect(lambda checked, name=s.name,idx=i: self.set_attribute(name, idx))
+                submenu.addSeparator()
+                submenu.addAction(u"列再設定").triggered.connect(lambda checked, name=s.name: self.set_column(name))
+                self.menu.addSeparator()
+            else:
+                self.menu.addAction(s.name + u"の列設定").triggered.connect(lambda checked, name=s.name: self.set_column(name))
+                self.menu.addSeparator()
 
-        if self.koudou_column is not None:
-            submenu = self.menu.addMenu(self.koudou_column)
-            for i, act in enumerate(self.koudou_menu_str):
-                submenu.addAction(act).triggered.connect(lambda checked, process_type="koudou", idx=i: self.set_attribute(process_type, idx))
-            submenu.addSeparator()
-            koudou_Action = submenu.addAction(u"列再設定")
-            koudou_Action.triggered.connect(lambda: self.set_column("koudou"))
-            self.menu.addSeparator()
-        else:
-            koudou_Action = self.menu.addAction(u"行動の列設定")
-            koudou_Action.triggered.connect(lambda: self.set_column("koudou"))
-            self.menu.addSeparator()
-        reset_value_Action = self.menu.addAction("属性表示 (Esc)")
-        reset_value_Action.triggered.connect(self.reset_value)
+        self.menu.addAction("属性表示 (Esc)").triggered.connect(self.reset_value)
 
     def reset_value(self):
         self.value = None
         self.canvas.setCursor(Qt.ArrowCursor)
 
-    def set_column(self, process_type):
+    def set_column(self, name):
         layer = self.canvas.currentLayer()
         col_list = layer.fields().names()
         column, ok = QInputDialog.getItem(QInputDialog(), u"列選択", "", col_list, 0, False)
@@ -95,13 +95,11 @@ class ChangeAttribute(QgsMapTool):
         if ok:
             if field_type == "String":
                 settings = QSettings()
-                if process_type == "LMH":
-                    self.LMH_column = column
-                    settings.setValue("ecorisUtils/LMH_column", column)
-                elif process_type == "koudou":
-                    self.koudou_column = column
-                    settings.setValue("ecorisUtils/koudou_column", column)
-                self.generate_menu()
+                for i, s in enumerate(self.attribute_settings):
+                    if name == s.name:
+                        self.attribute_settings[i].column = column
+                        settings.setValue("ecorisUtils/" + s.name, column)
+                    self.generate_menu()
             else:
                 QMessageBox.warning(None, "Warning", u"文字列型の列を選択してください")
 
@@ -127,27 +125,23 @@ class ChangeAttribute(QgsMapTool):
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
             self.reset_value()
-        elif self.LMH_column is not None:
-            for i, key in enumerate(self.LMH_shortcut_list):
-                if event.key() == key:
-                    self.set_attribute("LMH",i)
-                    break
-        elif self.koudou_column is not None:
-            for i, key in enumerate(self.koudou_shortcut_list):
-                if event.key() == key:
-                    self.set_attribute("koudou", i)
-                    break
+            return
 
-    def set_attribute(self, process_type, idx):
-        if process_type == "LMH":
-            self.column = self.LMH_column
-            self.value = self.LMH_value[idx]
-            self.canvas.setCursor(self.LMH_cursor[idx])
-        elif process_type == "koudou":
-            self.column = self.koudou_column
-            self.value = self.koudou_value[idx]
-            self.canvas.setCursor(self.koudou_cursor[idx])
+        for s in self.attribute_settings:
+            if s.column is not None:
+                for i, key in enumerate(s.shortcut):
+                    if event.key() == key:
+                        self.set_attribute(s.name, i)
+                        return
 
+
+    def set_attribute(self, name, idx):
+        for s in self.attribute_settings:
+            if name == s.name:
+                self.column = s.column
+                self.value = s.value[idx]
+                self.canvas.setCursor(s.cursor[idx])
+                break
 
     def getNearFeature(self, layer,point):
         d = self.canvas.mapUnitsPerPixel() * 10
