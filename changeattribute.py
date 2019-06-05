@@ -5,6 +5,8 @@ from qgis.PyQt.QtWidgets import *
 from qgis.PyQt.QtGui import *
 from qgis.core import *
 from qgis.gui import *
+import json
+import os
 
 class ChangeAttributeSettings():
     def __init__(self, name, column, value, menu, shortcut, cursor):
@@ -25,43 +27,72 @@ class ChangeAttribute(QgsMapTool):
         self.column = None  # current attribute column
         self.canvas.setCursor(Qt.ArrowCursor)  # default cursor
 
-        self.attribute_settings = []
-        # attribute list and icon
-        ## LMH
-        name = "LMH"
-        column = None
-        value = ["L", "M", "H"]
-        menu = ["L", "M", "H"]
-        shortcut = [Qt.Key_L, Qt.Key_M, Qt.Key_H]
-        cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/L.svg')),
-                           QCursor(QPixmap(':/plugins/ecorisUtils/icon/M.svg')),
-                           QCursor(QPixmap(':/plugins/ecorisUtils/icon/H.svg'))]
-        self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
-
-        ## koudou
-        name = "行動"
-        column = None
-        value = [u"飛翔", u"旋回上昇", u"ディスプレイ", u"攻撃", u"被攻撃", u"餌運び", u"探餌", u"狩り", u"巣材運び"]
-        menu = [u"飛翔 (A)", u"旋回上昇 (B)", u"ディスプレイ(C)", u"攻撃 (D)", u"被攻撃 (E)", u"餌運び (F)", u"探餌 (G)",
-                                u"狩り (H)", u"巣材運び (I)"]
-        shortcut = [Qt.Key_A, Qt.Key_B, Qt.Key_C, Qt.Key_D, Qt.Key_E, Qt.Key_F, Qt.Key_G, Qt.Key_H, Qt.Key_I]
-        cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/飛翔.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/旋回上昇.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/ディスプレイ.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/攻撃.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/被攻撃.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/餌運び.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/探餌.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/狩り.svg')),
-                              QCursor(QPixmap(':/plugins/ecorisUtils/icon/巣材運び.svg'))]
-        self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
+        # self.attribute_settings = []
+        # # attribute list and icon
+        # ## LMH
+        # name = "LMH"
+        # column = None
+        # value = ["L", "M", "H"]
+        # menu = ["L", "M", "H"]
+        # shortcut = [Qt.Key_L, Qt.Key_M, Qt.Key_H]
+        # cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/L.svg')),
+        #                    QCursor(QPixmap(':/plugins/ecorisUtils/icon/M.svg')),
+        #                    QCursor(QPixmap(':/plugins/ecorisUtils/icon/H.svg'))]
+        # self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
+        #
+        # ## koudou
+        # name = "行動"
+        # column = None
+        # value = [u"飛翔", u"旋回上昇", u"ディスプレイ", u"攻撃", u"被攻撃", u"餌運び", u"探餌", u"狩り", u"巣材運び"]
+        # menu = [u"飛翔 (A)", u"旋回上昇 (B)", u"ディスプレイ(C)", u"攻撃 (D)", u"被攻撃 (E)", u"餌運び (F)", u"探餌 (G)",
+        #                         u"狩り (H)", u"巣材運び (I)"]
+        # shortcut = [Qt.Key_A, Qt.Key_B, Qt.Key_C, Qt.Key_D, Qt.Key_E, Qt.Key_F, Qt.Key_G, Qt.Key_H, Qt.Key_I]
+        # cursor = [QCursor(QPixmap(':/plugins/ecorisUtils/icon/飛翔.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/旋回上昇.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/ディスプレイ.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/攻撃.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/被攻撃.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/餌運び.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/探餌.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/狩り.svg')),
+        #                       QCursor(QPixmap(':/plugins/ecorisUtils/icon/巣材運び.svg'))]
+        # self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
 
         # load setting and initialize menu
         self.load_settings()
         self.generate_menu()
 
+    def load_file(self, json_file=None):
+        if json_file is None:
+            fname = QFileDialog.getOpenFileName(None, 'Load file', os.path.expanduser('~'))
+            json_file = fname[0]
+        if os.path.exists(json_file):
+            self.attribute_settings = []
+            self.log("{}".format(json_file))
+            f = open(json_file, 'r')
+            json_data = json.load(f)
+            f.close()
+            dirname = os.path.dirname(json_file)
+            for j in json_data:
+                name = j["name"]
+                value = j["value"]
+                menu = j["menu"]
+                shortcut = [eval("Qt.Key_"+ s) for s in j["shortcut"]]
+                cursor = [QCursor(QPixmap(os.path.join(dirname, svg))) for svg in j["cursor"]]
+                column = None
+                self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
+            self.generate_menu()
+            settings = QSettings()
+            settings.setValue("ecorisUtils/json_file", json_file)
+
     def load_settings(self):
         settings = QSettings()
+        # try to load json_file
+        json_file = settings.value("ecorisUtils/json_file")
+        if not os.path.exists(json_file) or json_file is None:
+            json_file = os.path.join(os.path.dirname(__file__),"default_settings.json")
+        self.load_file(json_file)
+
         for i, s in enumerate(self.attribute_settings):
             self.attribute_settings[i].column = settings.value("ecorisUtils/" + s.name)
 
@@ -81,6 +112,8 @@ class ChangeAttribute(QgsMapTool):
                 self.menu.addSeparator()
 
         self.menu.addAction("属性表示 (Esc)").triggered.connect(self.reset_value)
+        self.menu.addSeparator()
+        self.menu.addAction("設定ファイル").triggered.connect(lambda: self.load_file(None))
 
     def reset_value(self):
         self.value = None
