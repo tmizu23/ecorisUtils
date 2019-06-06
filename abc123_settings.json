@@ -1,0 +1,16 @@
+[
+    {
+"name":"ABC",
+"value":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"menu":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"shortcut":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"cursor":["icon/A.svg","icon/B.svg","icon/C.svg","icon/D.svg","icon/E.svg","icon/F.svg","icon/G.svg","icon/H.svg","icon/I.svg","icon/J.svg","icon/K.svg","icon/L.svg","icon/M.svg","icon/N.svg","icon/O.svg","icon/P.svg","icon/Q.svg","icon/R.svg","icon/S.svg","icon/T.svg","icon/U.svg","icon/V.svg","icon/W.svg","icon/X.svg","icon/Y.svg","icon/Z.svg"]
+},
+  {
+"name":"123",
+"value":["1", "2", "3", "4", "5", "6", "7", "8", "9","0"],
+"menu":["1", "2", "3", "4", "5", "6", "7", "8", "9","0"],
+"shortcut":["1", "2", "3", "4", "5", "6", "7", "8", "9","0"],
+"cursor":["icon/1.svg","icon/2.svg","icon/3.svg","icon/4.svg","icon/5.svg","icon/6.svg","icon/7.svg","icon/8.svg","icon/9.svg","icon/0.svg"]
+}
+]

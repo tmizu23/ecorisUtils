@@ -64,7 +64,7 @@ class ChangeAttribute(QgsMapTool):
 
     def load_file(self, json_file=None):
         if json_file is None:
-            fname = QFileDialog.getOpenFileName(None, 'Load file', os.path.expanduser('~'))
+            fname = QFileDialog.getOpenFileName(None, 'Load file', os.path.dirname(__file__),"json (*.json)")
             json_file = fname[0]
         if os.path.exists(json_file):
             self.attribute_settings = []
