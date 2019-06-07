@@ -1,9 +1,9 @@
 [
     {
 "name":"ABC",
-"value":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
-"menu":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
-"shortcut":["A", "B", "C", "Z", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"value":["A", "B", "C", "D", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"menu":["A", "B", "C", "D", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+"shortcut":["A", "B", "C", "D", "E", "F", "G", "H", "I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
 "cursor":["icon/A.svg","icon/B.svg","icon/C.svg","icon/D.svg","icon/E.svg","icon/F.svg","icon/G.svg","icon/H.svg","icon/I.svg","icon/J.svg","icon/K.svg","icon/L.svg","icon/M.svg","icon/N.svg","icon/O.svg","icon/P.svg","icon/Q.svg","icon/R.svg","icon/S.svg","icon/T.svg","icon/U.svg","icon/V.svg","icon/W.svg","icon/X.svg","icon/Y.svg","icon/Z.svg"]
 },
   {

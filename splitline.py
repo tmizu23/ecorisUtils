@@ -60,12 +60,17 @@ class SplitLine(QgsMapTool):
                 self.check_crs()
                 if self.layerCRS.srsid() != self.projectCRS.srsid():
                     geom.transform(QgsCoordinateTransform(self.layerCRS, self.projectCRS, QgsProject.instance()))
-                if geom.wkbType() == QgsWkbTypes.MultiLineString:
-                    polyline = geom.asMultiPolyline()[0]
-                elif geom.wkbType() == QgsWkbTypes.LineString:
+
+                geom.convertToSingleType()
+                if layer.geometryType() == QgsWkbTypes.LineGeometry:
                     polyline = geom.asPolyline()
+                # if geom.wkbType() == QgsWkbTypes.MultiLineString:
+                #     polyline = geom.asMultiPolyline()[0]
+                # elif geom.wkbType() == QgsWkbTypes.LineString:
+                #     polyline = geom.asPolyline()
                 else:
                     QMessageBox.warning(None, "Warning", u"レイヤのタイプを確認してください")
+                    return
                 near, minDistPoint, afterVertex = self.closestPointOfGeometry(pnt, geom)
                 line1 = polyline[0:afterVertex]
                 line1.append(minDistPoint)

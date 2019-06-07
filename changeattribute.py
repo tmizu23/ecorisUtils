@@ -156,6 +156,7 @@ class ChangeAttribute(QgsMapTool):
 
 
     def keyPressEvent(self, event):
+        self.log("key:{}".format(event.key()))
         if event.key() == Qt.Key_Escape:
             self.reset_value()
             return
