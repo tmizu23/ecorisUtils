@@ -89,7 +89,7 @@ class ChangeAttribute(QgsMapTool):
         settings = QSettings()
         # try to load json_file
         json_file = settings.value("ecorisUtils/json_file")
-        if not os.path.exists(json_file) or json_file is None:
+        if json_file is None or not os.path.exists(json_file):
             json_file = os.path.join(os.path.dirname(__file__),"default_settings.json")
         self.load_file(json_file)
 
