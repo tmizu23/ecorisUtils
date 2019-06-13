@@ -1,14 +1,46 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
- <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
- <g>
-  <title>background</title>
-  <rect fill="#cccccc" id="canvas_background" height="26" width="26" y="-1" x="-1"/>
-  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
-   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
-  </g>
- </g>
- <g>
-  <title>Layer 1</title>
-  <text font-weight="bold" stroke="#000" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_2" y="19.5" x="5.5" stroke-width="0" fill="#000000">L</text>
- </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 10.0, SVG Export Plug-In . SVG Version: 3.0.0 Build 77)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 width="17.394" height="15.449" viewBox="0 0 17.394 15.449" style="overflow:visible;enable-background:new 0 0 17.394 15.449"
+	 xml:space="preserve">
+	<g id="L">
+		<g>
+			<path d="M5.896,13.596L0,0l13.598,5.896L8.344,8.344L5.896,13.596z"/>
+			<path style="fill:#33A02C;" d="M1.965,1.964l9.217,3.997l-3.561,1.66L5.962,11.18L1.965,1.964z"/>
+		</g>
+		<g>
+			<path d="M12.577,14.396h2.769c0.088,0,0.132,0.047,0.132,0.141v0.774c0,0.088-0.044,0.132-0.132,0.132h-3.938
+				c-0.088,0-0.132-0.044-0.132-0.132V9.008c0-0.094,0.044-0.141,0.132-0.141h1.037c0.088,0,0.132,0.047,0.132,0.141V14.396z"/>
+		</g>
+	</g>
+	<g id="M" style="display:none;">
+		<g style="display:inline;">
+			<path d="M5.896,13.596L0,0l13.598,5.896L8.344,8.344L5.896,13.596z"/>
+			<path style="fill:#FF0000;" d="M1.965,1.964l9.217,3.997l-3.561,1.66L5.962,11.18L1.965,1.964z"/>
+		</g>
+		<g style="display:inline;">
+			<path d="M16.154,11.003l-1.257,2.723c-0.035,0.054-0.076,0.08-0.123,0.08H13.86c-0.047,0-0.088-0.026-0.123-0.08l-1.257-2.723
+				h-0.018v4.314c0,0.088-0.044,0.132-0.132,0.132h-0.923c-0.088,0-0.132-0.044-0.132-0.132v-6.31c0-0.094,0.044-0.141,0.132-0.141
+				h1.028c0.047,0,0.085,0.026,0.114,0.079l1.758,3.797h0.018l1.758-3.797c0.029-0.053,0.067-0.079,0.114-0.079h1.063
+				c0.088,0,0.132,0.047,0.132,0.141v6.31c0,0.088-0.044,0.132-0.132,0.132h-0.958c-0.088,0-0.132-0.044-0.132-0.132v-4.314H16.154z
+				"/>
+		</g>
+	</g>
+	<g id="H" style="display:none;">
+		<g style="display:inline;">
+			<path d="M5.896,13.596L0,0l13.598,5.896L8.344,8.344L5.896,13.596z"/>
+			<path style="fill:#0A50A1;" d="M1.965,1.964l9.217,3.997l-3.561,1.66L5.962,11.18L1.965,1.964z"/>
+		</g>
+		<g style="display:inline;">
+			<path d="M12.533,12.464v2.848c0,0.088-0.044,0.132-0.132,0.132h-0.993c-0.088,0-0.132-0.044-0.132-0.132V9.008
+				c0-0.094,0.044-0.141,0.132-0.141h0.993c0.088,0,0.132,0.047,0.132,0.141v2.487h2.408V9.008c0-0.094,0.044-0.141,0.132-0.141
+				h0.993c0.088,0,0.132,0.047,0.132,0.141v6.304c0,0.088-0.044,0.132-0.132,0.132h-0.993c-0.088,0-0.132-0.044-0.132-0.132v-2.848
+				H12.533z"/>
+		</g>
+	</g>
 </svg>

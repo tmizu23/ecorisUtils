@@ -78,7 +78,7 @@ class ChangeAttribute(QgsMapTool):
                 value = j["value"]
                 menu = j["menu"]
                 shortcut = [eval("Qt.Key_"+ s) for s in j["shortcut"]]
-                cursor = [QCursor(QPixmap(os.path.join(dirname, svg))) for svg in j["cursor"]]
+                cursor = [QCursor(QPixmap(os.path.join(dirname, svg)),0,0) for svg in j["cursor"]]
                 column = None
                 self.attribute_settings.append(ChangeAttributeSettings(name, column, value, menu, shortcut, cursor))
             self.generate_menu()

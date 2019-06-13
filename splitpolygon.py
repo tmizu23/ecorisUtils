@@ -95,16 +95,15 @@ class SplitPolygon(QgsMapTool):
         if srcFeature:
             newFeature = self.dtCreateFeature(layer)
 
-            # # copy the attribute values#
-            # pkFields = layer.dataProvider().pkAttributeIndexes()
-            # fields = layer.pendingFields()
-            # for i in range(fields.count()):
-            #     # do not copy the PK value if there is a PK field
-            #     if i in pkFields:
-            #         continue
-            #     else:
-            #         newFeature.setAttribute(i, srcFeature[i])
-
+            # copy the attribute values#
+            pkFields = layer.dataProvider().pkAttributeIndexes()
+            fields = layer.fields()
+            for i in range(fields.count()):
+                # do not copy the PK value if there is a PK field
+                if i in pkFields:
+                    continue
+                else:
+                    newFeature.setAttribute(i, srcFeature.attributes()[i])
             return newFeature
         else:
             return None
