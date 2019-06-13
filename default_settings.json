@@ -3,14 +3,21 @@
 "name":"LMH",
 "value":["L", "M", "H"],
 "menu":["L", "M", "H"],
-"shortcut":["L", "M", "H"],
+"shortcut":["1", "2", "3"],
 "cursor":["icon/L.svg","icon/M.svg","icon/H.svg"]
 },
 {
-"name":"行動",
-"value":["飛翔", "旋回上昇", "ディスプレイ", "攻撃", "被攻撃", "餌運び", "探餌", "狩り", "巣材運び"],
-"menu":["飛翔 (A)", "旋回上昇 (B)", "ディスプレイ(C)", "攻撃 (D)", "被攻撃 (E)", "餌運び (F)", "探餌 (G)","狩り (I)", "巣材運び (J)"],
-"shortcut":["A", "B", "C", "D", "E", "F", "G", "H", "I"],
-"cursor":["icon/hisyou.svg","icon/senkaijyousyou.svg","icon/display.svg","icon/kougeki.svg","icon/hikougeki.svg","icon/esahakobi.svg","icon/tanji.svg","icon/kari.svg","icon/suzaihakobi.svg"]
+"name":"行動L",
+"value":["飛翔", "消失", "旋回", "旋回上昇", "急降下", "ディスプレイ1", "ディスプレイ2", "攻撃", "被攻撃", "餌運搬", "探餌飛翔", "巣材運搬"],
+"menu":["飛翔 (F)", "消失 (L)", "旋回 (T)", "旋回上昇 (U)", "急降下 (K)", "ディスプレイ1 (D)", "ディスプレイ2 (W)", "攻撃・モビング (A)", "被攻撃・被モビング (R)", "餌運搬 (C)", "探餌飛翔 (S)", "巣材運搬 (N)"],
+"shortcut":["F", "L", "T", "U", "K", "D", "W", "A", "R", "C", "S", "N"],
+"cursor":["icon/Fly.svg","icon/Arrow.svg","icon/Turning.svg","icon/Turn_up.svg","icon/Kouka.svg","icon/Disp1.svg","icon/Disp2.svg","icon/Mobbing.svg","icon/Mobbing_D.svg","icon/Esaunnpan.svg","icon/Tanzi_F.svg","icon/Suzai.svg"]
+},
+{
+"name":"行動P",
+"value":["とまり", "探餌とまり", "狩り", "交尾", "停空飛翔", "抱卵", "鳴き声"],
+"menu":["とまり (P)", "探餌とまり (G)", "狩り (X)", "交尾 (M)", "停空飛翔 (H)", "抱卵 (E)", "鳴き声 (V)"],
+"shortcut":["P", "G", "X", "M", "H", "E", "V"],
+"cursor":["icon/Perch.svg","icon/Tanzi_P.svg","icon/Hunting.svg","icon/Koubi.svg","icon/Hanging.svg","icon/Houran.svg","icon/Voice.svg"]
 }
 ]
