@@ -101,7 +101,7 @@ class ChangeAttribute(QgsMapTool):
 
         for s in self.attribute_settings:
             if s.column is not None:
-                submenu = self.menu.addMenu(s.column)
+                submenu = self.menu.addMenu(s.name + "(" + s.column +")")
                 for i, act in enumerate(s.menu):
                     submenu.addAction(act).triggered.connect(lambda checked, name=s.name,idx=i: self.set_attribute(name, idx))
                 submenu.addSeparator()
@@ -139,7 +139,7 @@ class ChangeAttribute(QgsMapTool):
 
     def canvasPressEvent(self, event):
         layer = self.canvas.currentLayer()
-        if not layer or layer.type() != QgsMapLayer.VectorLayer or layer.geometryType() != QgsWkbTypes.LineGeometry:
+        if not layer or layer.type() != QgsMapLayer.VectorLayer:
             return
         if event.button() == Qt.RightButton:
             self.menu.exec_(self.canvas.mapToGlobal(QPoint(event.pos().x() + 5, event.pos().y())))

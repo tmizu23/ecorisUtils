@@ -10,17 +10,5 @@
         <file>icon/iconSplitLine.svg</file>
         <file>icon/iconScalingFeature.svg</file>
         <file>icon/mCrossHair.svg</file>
-        <file>icon/L.svg</file>
-        <file>icon/M.svg</file>
-        <file>icon/H.svg</file>
-        <file>icon/飛翔.svg</file>
-        <file>icon/旋回上昇.svg</file>
-        <file>icon/ディスプレイ.svg</file>
-        <file>icon/攻撃.svg</file>
-        <file>icon/被攻撃.svg</file>
-        <file>icon/餌運び.svg</file>
-        <file>icon/探餌.svg</file>
-        <file>icon/狩り.svg</file>
-        <file>icon/巣材運び.svg</file>
     </qresource>
 </RCC>
