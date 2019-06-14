@@ -25,7 +25,8 @@ class ChangeAttribute(QgsMapTool):
         self.iface = iface
         self.value = None  # current attribute value
         self.column = None  # current attribute column
-        self.canvas.setCursor(Qt.ArrowCursor)  # default cursor
+        self.defaultCursor = QCursor(QPixmap(':/plugins/ecorisUtils/icon/Esc.svg'), 0, 0)
+        self.canvas.setCursor(self.defaultCursor)  # default cursor
 
         # self.attribute_settings = []
         # # attribute list and icon
@@ -117,7 +118,7 @@ class ChangeAttribute(QgsMapTool):
 
     def reset_value(self):
         self.value = None
-        self.canvas.setCursor(Qt.ArrowCursor)
+        self.canvas.setCursor(self.defaultCursor)
 
     def set_column(self, name):
         layer = self.canvas.currentLayer()
@@ -125,8 +126,9 @@ class ChangeAttribute(QgsMapTool):
         column, ok = QInputDialog.getItem(QInputDialog(), u"列選択", "", col_list, 0, False)
         COL = layer.fields().indexFromName(column)
         field_type = layer.fields()[COL].typeName()
+        self.log("{}".format(field_type))
         if ok:
-            if field_type == "String":
+            if field_type == "String" or field_type == "string":
                 settings = QSettings()
                 for i, s in enumerate(self.attribute_settings):
                     if name == s.name:
@@ -222,9 +224,7 @@ class ChangeAttribute(QgsMapTool):
 
 
     def activate(self):
-        self.cursor = QCursor()
-        self.cursor.setShape(Qt.ArrowCursor)
-        self.canvas.setCursor(self.cursor)
+        self.canvas.setCursor(self.defaultCursor)
         self.alt = False
 
     def deactivate(self):

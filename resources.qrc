@@ -10,5 +10,6 @@
         <file>icon/iconSplitLine.svg</file>
         <file>icon/iconScalingFeature.svg</file>
         <file>icon/mCrossHair.svg</file>
+        <file>icon/Esc.svg</file>
     </qresource>
 </RCC>
