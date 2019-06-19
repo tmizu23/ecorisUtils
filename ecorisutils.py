@@ -126,29 +126,36 @@ class ecorisUtils(object):
 
         # Connect to signals for button behaviour
         self.iface.layerTreeView().currentLayerChanged.connect(self.toggle)
-        self.canvas.mapToolSet.connect(self.deactivate)
+        self.canvas.mapToolSet.connect(self.maptoolChanged)
+
+        self.currentTool = None
 
 
     def merge_two_lines(self):
         self.mergetwolines.merge()
 
     def move_with_snapping(self):
+        self.currentTool = self.movewithsnapping
         self.canvas.setMapTool(self.movewithsnapping)
         self.actionMoveWithSnapping.setChecked(True)
 
     def feature_selection(self):
+        self.currentTool = self.featureselection
         self.canvas.setMapTool(self.featureselection)
         self.actionFeatureSelection.setChecked(True)
 
     def change_attribute(self):
+        self.currentTool = self.changeattribute
         self.canvas.setMapTool(self.changeattribute)
         self.actionChangeAttribute.setChecked(True)
 
     def split_polygon(self):
+        self.currentTool = self.splitpolygon
         self.canvas.setMapTool(self.splitpolygon)
         self.actionSplitPolygon.setChecked(True)
 
     def split_line(self):
+        self.currentTool = self.splitline
         self.canvas.setMapTool(self.splitline)
         self.actionSplitLine.setChecked(True)
 
@@ -208,14 +215,16 @@ class ecorisUtils(object):
                 except TypeError:  # missing connection
                     pass
 
-
-    def deactivate(self):
+    def maptoolChanged(self):
         #self.actionMergeTwoLines.setChecked(False)
         self.actionMoveWithSnapping.setChecked(False)
         self.actionFeatureSelection.setChecked(False)
         self.actionSplitPolygon.setChecked(False)
         self.actionChangeAttribute.setChecked(False)
         self.actionSplitLine.setChecked(False)
+        if self.iface.mapCanvas().mapTool() != self.currentTool:
+            self.iface.mapCanvas().unsetMapTool(self.currentTool)
+            self.currentTool = None
 
     def unload(self):
         self.toolbar.removeAction(self.actionMergeTwoLines)

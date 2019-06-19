@@ -148,13 +148,19 @@ class ChangeAttribute(QgsMapTool):
         else:
             #layer.removeSelection()
             point = self.toMapCoordinates(event.pos())
-            near, f = self.getNearFeature(layer, point)
+            near, feat = self.getNearFeatures(layer, point)
             if near:
-                #layer.select(f.id())
+                # First try to edit the selected feature. If not, edit the last feature of the table.
+                edit_feature = feat[-1]
+                feat_ids = [f.id() for f in feat]
+                for selected_id in layer.selectedFeatureIds():
+                    if selected_id in feat_ids:
+                        edit_feature = feat[feat_ids.index(selected_id)]
+
                 if self.column is None or self.value is None:
-                    self.editAttribute(f, None, None, showdlg=True)
+                    self.editAttribute(edit_feature, None, None, showdlg=True)
                 else:
-                    self.editAttribute(f, self.column, self.value)
+                    self.editAttribute(edit_feature, self.column, self.value)
 
 
     def keyPressEvent(self, event):
@@ -179,22 +185,22 @@ class ChangeAttribute(QgsMapTool):
                 self.canvas.setCursor(s.cursor[idx])
                 break
 
-    def getNearFeature(self, layer,point):
-        d = self.canvas.mapUnitsPerPixel() * 10
-        rect = QgsRectangle((point.x() - d), (point.y() - d), (point.x() + d), (point.y() + d))
+    def getNearFeatures(self, layer, point, rect=None):
+        if rect is None:
+            d = self.canvas.mapUnitsPerPixel() * 10
+            rect = QgsRectangle((point.x() - d), (point.y() - d), (point.x() + d), (point.y() + d))
         self.check_crs()
         if self.layerCRS.srsid() != self.projectCRS.srsid():
             rectGeom = QgsGeometry.fromRect(rect)
             rectGeom.transform(QgsCoordinateTransform(self.projectCRS, self.layerCRS, QgsProject.instance()))
             rect = rectGeom.boundingBox()
         request = QgsFeatureRequest()
-        request.setLimit(1)
         request.setFilterRect(rect)
-        f = [feat for feat in layer.getFeatures(request)]  # only one because of setlimit(1)
-        if len(f)==0:
-            return False,None
+        f = [feat for feat in layer.getFeatures(request)]
+        if len(f) == 0:
+            return False, None
         else:
-            return True,f[0]
+            return True, f
 
     def check_crs(self):
         layer = self.canvas.currentLayer()
