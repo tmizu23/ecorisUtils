@@ -121,32 +121,38 @@ class SplitPolygon(QgsMapTool):
 
     def selectedPolygonFeatures(self):
         layer_list = QgsProject.instance().layerTreeRoot().children()
-        layers = [lyr.layer() for lyr in layer_list]
         layer = None
         features = []
-        for l in layers:
-            if QgsProject.instance().layerTreeRoot().findLayer(l.id()).isVisible():
-                if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.PolygonGeometry:
-                    fids = l.selectedFeatureIds()
-                    features = [self.getFeatureById(l,fid) for fid in fids]
-                    if len(features) > 0:
-                        layer = l
-                        return layer, features
+        for child in layer_list:
+            if isinstance(child, QgsLayerTreeGroup):
+                pass
+            elif isinstance(child, QgsLayerTreeLayer):
+                if child.isVisible():
+                    l = child.layer()
+                    if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.PolygonGeometry:
+                        fids = l.selectedFeatureIds()
+                        features = [self.getFeatureById(l,fid) for fid in fids]
+                        if len(features) > 0:
+                            layer = l
+                            return layer, features
         return layer, features
 
     def selectedLineFeatures(self):
         layer_list = QgsProject.instance().layerTreeRoot().children()
-        layers = [lyr.layer() for lyr in layer_list]
         layer = None
         features = []
-        for l in layers:
-            if QgsProject.instance().layerTreeRoot().findLayer(l.id()).isVisible():
-                if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.LineGeometry:
-                    fids = l.selectedFeatureIds()
-                    features = [self.getFeatureById(l,fid) for fid in fids]
-                    if len(features) > 0:
-                        layer = l
-                        return layer, features
+        for child in layer_list:
+            if isinstance(child, QgsLayerTreeGroup):
+                pass
+            elif isinstance(child, QgsLayerTreeLayer):
+                if child.isVisible():
+                    l = child.layer()
+                    if l.type() == QgsMapLayer.VectorLayer and l.geometryType() == QgsWkbTypes.LineGeometry:
+                        fids = l.selectedFeatureIds()
+                        features = [self.getFeatureById(l,fid) for fid in fids]
+                        if len(features) > 0:
+                            layer = l
+                            return layer, features
         return layer, features
 
     def getFeatureById(self,layer,featid):
