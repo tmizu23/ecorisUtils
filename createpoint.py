@@ -17,11 +17,11 @@ class CreatePoint(object):
     def run(self):
         qid = QInputDialog()
 
-        input, ok = QInputDialog.getText(qid, "Enter Coordinates", "Enter New Coordinates as 'xcoord,ycoord'",
-                                         QLineEdit.Normal, "135" + "," + "35")
+        input, ok = QInputDialog.getText(qid, "Enter Coordinates", "Enter New Coordinates as 'lat,lon'",
+                                         QLineEdit.Normal, "35" + "," + "135")
         if ok:
-            x = input.split(",")[0]
-            y = input.split(",")[1]
+            x = input.split(",")[1]
+            y = input.split(",")[0]
             self.create(float(x),float(y))
 
     def create(self,x,y):
